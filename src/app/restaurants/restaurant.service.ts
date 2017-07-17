@@ -23,8 +23,7 @@ export class RestaurantService implements OnInit {
     .map( response => response.json())
     .catch(ErrorHandler.handleError);
    }
-   
-
+  
      restaurantById(id: string):Observable<Restaurant>{
 
     return this.http.get(`${MEAT_API}/restaurants/${id}`)
@@ -32,4 +31,11 @@ export class RestaurantService implements OnInit {
     .catch(ErrorHandler.handleError);
    }
    
+
+    reviewsOfRestaurante(id: string):Observable<any>{
+
+    return this.http.get(`${MEAT_API}/restaurants/${id}/reviews`)
+    .map( response => response.json())
+    .catch(ErrorHandler.handleError);
+   }
 }

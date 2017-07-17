@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class RestaurantComponent implements OnInit {
 
-  @Input() restaurant : Restaurant;
+  @Input() restaurant: Restaurant;
 
   constructor() { }
 
