@@ -14,7 +14,9 @@ export class RestaurantService implements OnInit {
    constructor(private http:Http){
        
    }
-   
+   ngOnInit(): void {
+        throw new Error("Method not implemented.");
+    }
    restaurants():Observable<Restaurant[]>{
 
     return this.http.get(`${MEAT_API}/restaurants`)
@@ -22,9 +24,12 @@ export class RestaurantService implements OnInit {
     .catch(ErrorHandler.handleError);
    }
    
-    ngOnInit(): void {
-        throw new Error("Method not implemented.");
-    }
 
+     restaurantById(id: string):Observable<Restaurant>{
 
+    return this.http.get(`${MEAT_API}/restaurants/${id}`)
+    .map( response => response.json())
+    .catch(ErrorHandler.handleError);
+   }
+   
 }
